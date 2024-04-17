@@ -11,7 +11,7 @@ services:
     restart: always
     volumes:
       - /mnt/Persistent/docker/nextcloud/volume/nextcloud-data:/var/www/html
-      - /mnt/persistent/NextCloudData/data:/var/www/html/data
+      - /media/devmon/EHDC/NextCloudData/data:/var/www/html/data
     environment:
       - MYSQL_PASSWORD=cvbnrtyu217465789*&980hgfh
       - MYSQL_DATABASE=ghfghytm*nm9$879
