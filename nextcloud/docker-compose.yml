@@ -2,7 +2,7 @@ version: "3"
 
 networks:
   nginx:
-    name: nginx_default
+    name: bridge
     external: true
 
 services:
