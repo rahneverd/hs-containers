@@ -15,8 +15,8 @@ services:
      - 6881:6881/udp
      - 58846:58846
     volumes:
-      - /mnt/persistent/docker/deluge/volume/data:/config
-      - /mnt/externalc/jfMedia/downloads:/downloads
+      - /mnt/Persistent/docker/deluge/volume/data:/config
+      - /media/devmon/EHDC/jfMedia/downloads:/downloads
     image: linuxserver/deluge:latest
     environment:
       - PUID=0

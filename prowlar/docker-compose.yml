@@ -14,7 +14,7 @@ services:
       - PGID=1000
       - TZ=Asia/Karachi
     volumes:
-      - /mnt/persistent/docker/prowlar/volume/data:/config
+      - /mnt/Persistent/docker/prowlar/volume/data:/config
     ports:
       - 8003:9696
     restart: unless-stopped

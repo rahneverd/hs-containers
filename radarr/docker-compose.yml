@@ -12,9 +12,9 @@ services:
     ports:
      - 8005:7878
     volumes:
-      - /mnt/persistent/docker/radarr/volume/data:/config
-      - /mnt/externalc/jfMedia/movies:/tv
-      - /mnt/externalc/jfMedia/downloads:/downloads
+      - /mnt/Persistent/docker/radarr/volume/data:/config
+      - /media/devmon/EHDC/jfMedia/movies:/tv
+      - /media/devmon/EHDC/jfMedia/downloads:/downloads
     image: linuxserver/radarr
     environment:
       - PUID=0

@@ -14,10 +14,10 @@ services:
       - PGID=1000
       - TZ=Asia/Karachi
     volumes:
-      - /mnt/persistent/docker/jellyfin/volume/library:/config
-      - /mnt/externalc/jfMedia/tvseries:/data/tvshows
-      - /mnt/externalc/jfMedia/movies:/data/movies
-      - /mnt/externalc/jfMedia/courses:/data/courses
+      - /mnt/Persistent/docker/jellyfin/volume/library:/config
+      - /media/devmon/EHDC/jfMedia/tvseries:/data/tvshows
+      - /media/devmon/EHDC/jfMedia/movies:/data/movies
+      - /media/devmon/EHDC/jfMedia/courses:/data/courses
     ports:
       - 8096:8096
     restart: unless-stopped

@@ -12,9 +12,9 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-      - /mnt/persistent/docker/homarr/volume/homarr/configs:/app/data/configs
-      - /mnt/persistent/docker/homarr/volume/homarr/icons:/app/public/icons
-      - /mnt/persistent/docker/homarr/volume/homarr/data:/data
+      - /mnt/Persistent/docker/homarr/volume/homarr/configs:/app/data/configs
+      - /mnt/Persistent/docker/homarr/volume/homarr/icons:/app/public/icons
+      - /mnt/Persistent/docker/homarr/volume/homarr/data:/data
     ports:
       - '8002:7575'
     networks:

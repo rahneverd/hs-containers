@@ -13,9 +13,9 @@ services:
     ports:
      - 8004:8989
     volumes:
-      - /mnt/persistent/docker/sonarr/volume/data:/config
-      - /mnt/externalc/jfMedia/tvseries:/tv
-      - /mnt/externalc/jfMedia/downloads:/downloads
+      - /mnt/Persistent/docker/sonarr/volume/data:/config
+      - /media/devmon/EHDC/jfMedia/tvseries:/tv
+      - /media/devmon/EHDC/jfMedia/downloads:/downloads
     image: linuxserver/sonarr
     environment:
       - PUID=0

@@ -36,7 +36,7 @@ services:
     image: docker.io/library/redis:7
     restart: unless-stopped
     volumes:
-      - /mnt/persistent/docker/paperless/volume/redisdata:/data
+      - /mnt/Persistent/docker/paperless/volume/redisdata:/data
     networks:
       - nginx
 
@@ -44,7 +44,7 @@ services:
     image: docker.io/library/postgres:15
     restart: unless-stopped
     volumes:
-      - /mnt/persistent/docker/paperless/volume/pgdata:/var/lib/postgresql/data
+      - /mnt/Persistent/docker/paperless/volume/pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: paperless_wdw_rahneved8524262
       POSTGRES_USER: paperless_wdw_rahneverd*45852963127852
@@ -68,10 +68,10 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - /mnt/persistent/docker/paperless/volume/data:/usr/src/paperless/data
-      - /mnt/persistent/docker/paperless/volume/media:/usr/src/paperless/media
-      - /mnt/persistent/docker/paperless/volume/export:/usr/src/paperless/export
-      - /mnt/persistent/docker/paperless/volume/consume:/usr/src/paperless/consume
+      - /mnt/Persistent/docker/paperless/volume/data:/usr/src/paperless/data
+      - /mnt/Persistent/docker/paperless/volume/media:/usr/src/paperless/media
+      - /mnt/Persistent/docker/paperless/volume/export:/usr/src/paperless/export
+      - /mnt/Persistent/docker/paperless/volume/consume:/usr/src/paperless/consume
     env_file: docker-compose.env
     environment:
       PAPERLESS_REDIS: redis://broker:6379
