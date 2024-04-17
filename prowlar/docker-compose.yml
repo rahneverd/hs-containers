@@ -1,0 +1,22 @@
+version: '2.1'
+
+networks:
+   nginx:
+    name: nginx_default
+    external: true
+
+services:
+   prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Karachi
+    volumes:
+      - /mnt/persistent/docker/prowlar/volume/data:/config
+    ports:
+      - 8003:9696
+    restart: unless-stopped
+    networks:
+      - nginx

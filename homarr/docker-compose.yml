@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  nginx:
+    name: nginx_default
+    external: true
+
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - /mnt/persistent/docker/homarr/volume/homarr/configs:/app/data/configs
+      - /mnt/persistent/docker/homarr/volume/homarr/icons:/app/public/icons
+      - /mnt/persistent/docker/homarr/volume/homarr/data:/data
+    ports:
+      - '8002:7575'
+    networks:
+      - nginx

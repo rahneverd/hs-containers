@@ -1,0 +1,34 @@
+version: '2.1'
+
+networks:
+   nginx:
+    name: nginx_default
+    external: true
+
+services:
+   deluge:
+    container_name: deluge
+    restart: unless-stopped
+    ports:
+     - 8007:8112
+     - 6881:6881
+     - 6881:6881/udp
+     - 58846:58846
+    volumes:
+      - /mnt/persistent/docker/deluge/volume/data:/config
+      - /mnt/externalc/jfMedia/downloads:/downloads
+    image: linuxserver/deluge:latest
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Karachi
+      - UMASK_SET=000
+      - DELUGE_LOGLEVEL=error
+    networks:
+      - nginx
+
+
+
+
+
+

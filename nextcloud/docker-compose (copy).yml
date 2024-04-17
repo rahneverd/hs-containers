@@ -1,0 +1,30 @@
+services:
+  nextcloud-aio-mastercontainer:
+    image: nextcloud/all-in-one:latest
+    init: true
+    restart: always
+    container_name: nextcloud-aio-mastercontainer
+    volumes:
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8002:80
+      - 8080:8080
+      - 8003:8443
+    environment:
+      NEXTCLOUD_DATADIR: /media/wdw/Persistent1/docker/nextcloud/volume/ncdata
+      NEXTCLOUD_MOUNT: /media/wdw/Persistent1/docker/nextcloud/volume/
+    networks:
+      - nginx
+
+
+volumes: # If you want to store the data on a different drive, see https://github.com/nextcloud/all-in-one#how-to-store-the-filesinstallation-on-a-separate-drive
+  nextcloud_aio_mastercontainer:
+    name: nextcloud_aio_mastercontainer # This line is not allowed to be changed as otherwise the built-in backup solution will not work
+
+
+
+networks:
+  nginx:
+    name: nginx_default
+    external: true

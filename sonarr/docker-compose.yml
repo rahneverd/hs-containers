@@ -1,0 +1,25 @@
+
+version: '2.1'
+
+networks:
+   nginx:
+    name: nginx_default
+    external: true
+
+services:
+   sonarr:
+    container_name: sonarr
+    restart: unless-stopped
+    ports:
+     - 8004:8989
+    volumes:
+      - /mnt/persistent/docker/sonarr/volume/data:/config
+      - /mnt/externalc/jfMedia/tvseries:/tv
+      - /mnt/externalc/jfMedia/downloads:/downloads
+    image: linuxserver/sonarr
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Karachi
+    networks:
+      - nginx

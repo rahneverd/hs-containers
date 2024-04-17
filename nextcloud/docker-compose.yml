@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  nginx:
+    name: nginx_default
+    external: true
+
+services:
+  nextcloud-app:
+    image: nextcloud
+    restart: always
+    volumes:
+      - /mnt/persistent/docker/nextcloud/volume/nextcloud-data:/var/www/html
+      - /mnt/persistent/NextCloudData/data:/var/www/html/data
+    environment:
+      - MYSQL_PASSWORD=cvbnrtyu217465789*&980hgfh
+      - MYSQL_DATABASE=ghfghytm*nm9$879
+      - MYSQL_USER=fgrewipocv
+      - MYSQL_HOST=nextcloud-db
+    ports:
+      - 8010:80
+    networks:
+      - nginx
+      
+  nextcloud-db:
+    image: mariadb
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /mnt/persistent/docker/nextcloud/volume/nextcloud-db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=cvbnrtyu217465789*&98456*gfjh%0hgfh
+      - MYSQL_PASSWORD=cvbnrtyu217465789*&980hgfh
+      - MYSQL_DATABASE=ghfghytm*nm9$879
+      - MYSQL_USER=fgrewipocv
+    networks:
+      - nginx
